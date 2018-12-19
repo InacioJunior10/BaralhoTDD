@@ -1,83 +1,15 @@
-<script>
-    var naipes = ["C", "E", "O", "P"];
-    var numeros = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-    var baralho = [];
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baralho TDD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-// --------------- Funções --------------- //
-    function criarBaralho(){
-        for (var i = 0; i < naipes.length; i++){
-            for (var j = 0; j < numeros.length; j++){
-                baralho.push(naipes[i].toString() + numeros[j].toString());                
-            }
-        }        
-    }
-
-    function ordernarBaralho(){
-        var aux;
-        var _baralho = baralho;
-
-        for (var i = 0; i < _baralho.length - 1; i++){
-            for (var j = (i + 1); j < _baralho.length; j++){
-                if (_baralho[j] < _baralho[i]){
-                    aux = _baralho[i];
-                    _baralho[i] = _baralho[j];
-                    _baralho[j] = aux;
-                }
-            }
-        }
-
-        return _baralho;
-    }
-
-    function embaralharBaralho(){
-        var _baralho = baralho.slice();
-        var baralhoEmbaralhado = [];
-        var index = 0;
-
-        while (_baralho.length > 0){
-            index = Math.floor(Math.random() * _baralho.length - 1)
-            baralhoEmbaralhado.push(_baralho.splice(index, 1));
-        }
-
-        return baralhoEmbaralhado;
-    }
-// --------------- Funções --------------- //
-
-
-// --------------- Testes --------------- //
-    function testeCriarBaralho(){
-        if (baralho.length != 52){
-            console.log("Erro!");
-        }else{
-            console.log("Ok!");
-        }
-    }
-
-    function testeOrdenarBaralho(){
-        baralho = ordernarBaralho();
-
-        if (baralho.toString() != "C10,C2,C3,C4,C5,C6,C7,C8,C9,CA,CJ,CK,CQ,E10,E2,E3,E4,E5,E6,E7,E8,E9,EA,EJ,EK,EQ,O10,O2,O3,O4,O5,O6,O7,O8,O9,OA,OJ,OK,OQ,P10,P2,P3,P4,P5,P6,P7,P8,P9,PA,PJ,PK,PQ"){
-            console.log("Erro!");
-        }else{
-            console.log("Ok!");
-        }
-    }    
+    <script src="Funcoes.js"></script>
+    <script src="Testes.js"></script>
+</head>
+<body>
     
-    function testeEmbaralharBaralho(){
-        var baralho1 = embaralharBaralho();
-        var baralho2 = embaralharBaralho();
-
-        if (baralho1 == baralho2){
-            console.log("Erro!");
-        }else{
-            console.log("Ok!");
-        }
-    }
-// --------------- Testes --------------- //
-
-    criarBaralho();
-    testeCriarBaralho();
-    testeOrdenarBaralho();
-    testeEmbaralharBaralho();
-</script>
+</body>
+</html>
